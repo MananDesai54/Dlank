@@ -21,4 +21,5 @@ export const firebaseData = {
   firebase,
   auth: firebase.auth(),
   firestore: firebase.firestore(),
+  firebaseConfig,
 };
