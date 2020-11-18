@@ -2,18 +2,20 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Auth from "./Components/Auth/Auth";
 import Navbar from "./Components/Layout/Navbar/Navbar";
-import { firebaseData } from "./firebase.config";
-import { useAuthState } from "react-firebase-hooks/auth";
+import "./firebase.config";
+import "materialize-css/dist/css/materialize.min.css";
+import PrivateRoute from "./Components/Routing/PrivateRoute";
+import Dashboard from "./Components/Dashboard/Dashboard";
+import NotFound from "./Components/Layout/NotFound/NotFound";
 
 function App() {
-  const [user, isLoading, error] = useAuthState(firebaseData.auth);
-  console.log(user, isLoading, error);
-
   return (
     <div className="App">
       <Navbar />
       <Switch>
-        <Route path="/" component={Auth} />
+        <Route path="/" component={Auth} exact />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
+        <Route component={NotFound} />
       </Switch>
     </div>
   );

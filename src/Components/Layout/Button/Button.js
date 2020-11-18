@@ -1,6 +1,14 @@
-const Button = ({ text, type, onClick, style }) => {
+import "./Button.css";
+import "materialize-css/js/waves";
+
+const Button = ({ text, type, onClick, style, className }) => {
   return (
-    <button type={type} onClick={onClick} style={{ ...style }}>
+    <button
+      className={"btn waves-effect waves-light " + className}
+      type={type}
+      onClick={onClick}
+      style={{ ...style }}
+    >
       {text}
     </button>
   );

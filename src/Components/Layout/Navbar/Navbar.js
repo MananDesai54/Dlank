@@ -1,28 +1,28 @@
-import classes from "./Navbar.module.css";
+import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { Fragment } from "react";
 import { firebaseData } from "../../../firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import firebase from "firebase/app";
 
 const Navbar = (props) => {
   const authLinks = <Link to="/">Authenticate</Link>;
 
   const userLinks = (
-    <Fragment>
+    <div>
       <Link to="/">Dashboard</Link>
       <Link to="/">Teams</Link>
       <Link to="/">Tasks</Link>
-      <Link to="/" onClick={firebaseData.auth.signOut}>
-        Signout
-      </Link>
-    </Fragment>
+      <button onClick={() => firebase.auth().signOut()}>Signout</button>
+    </div>
   );
 
   const [user, isLoading] = useAuthState(firebaseData.auth);
 
   return (
-    <div className={classes.Navbar}>
-      <h3>Dlank</h3>
+    <div className="black white-text flex navbar">
+      <Link to="/">
+        <h3 style={{ margin: 0, color: "#fff" }}>Dlank</h3>
+      </Link>
       {!isLoading ? (!user ? authLinks : userLinks) : ""}
     </div>
   );

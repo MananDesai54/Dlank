@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar a {
+  color: gray;
+  transition: all 400ms;
+  margin: 0 0.5rem;
+}
+.navbar a:hover {
+  color: white;
+  transition: all 400ms;
+}
+.navbar button {
+  background: none;
+  border: none;
+  color: gray;
+  transition: all 400ms;
+  cursor: pointer;
+  margin: 0 0.2rem;
+}
+.navbar button:hover {
+  color: white;
+  transition: all 400ms;
+}
