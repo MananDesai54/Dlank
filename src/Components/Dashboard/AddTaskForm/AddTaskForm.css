@@ -1,0 +1,31 @@
+.addTaskForm {
+  width: 90vw;
+  max-width: 500px;
+  margin: auto;
+  background: #eee;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms;
+}
+.showAddTaskForm {
+  opacity: 1;
+  pointer-events: all;
+  transition: all 400ms;
+}
+.addTaskForm i {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+.addTaskForm .type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

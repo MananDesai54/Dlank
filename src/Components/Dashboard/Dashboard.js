@@ -1,3 +1,4 @@
+import "./Dashboard.css";
 import { Fragment, useEffect, useMemo, useState } from "react";
 import FixedActionButton from "../Layout/FixedActionButton/FixedActionButton";
 import { firebaseData } from "../../firebase.config";
@@ -37,12 +38,25 @@ const Dashboard = (props) => {
 
   console.log(tasks);
 
+  const addTask = ({ title, description, type, remindAt }) => {
+    taskRef.add({
+      title,
+      description,
+      type,
+      remindAt: type === "task" ? [] : [remindAt],
+      createdAt: new Date(),
+      userId: user.uid,
+    });
+  };
+
   return (
     <Fragment>
-      {tasks.map((task) => (
-        <Tasks key={task.id} task={task} />
-      ))}
-      <FixedActionButton />
+      <div className="tasks">
+        {tasks.map((task) => (
+          <Tasks key={task.id} task={task} />
+        ))}
+      </div>
+      <FixedActionButton addTask={addTask} />
     </Fragment>
   );
 };

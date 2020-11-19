@@ -1,3 +1,13 @@
 .task {
   margin: 1rem;
+  padding: 1rem;
+  background: #ddd;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  cursor: pointer;
+  transition: all 400ms;
+}
+.task:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 400ms;
 }
