@@ -9,6 +9,9 @@
   transition: all 400ms;
   margin: 0 0.5rem;
 }
+.navbar a:active {
+  color: white;
+}
 .navbar a:hover {
   color: white;
   transition: all 400ms;

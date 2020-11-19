@@ -6,21 +6,21 @@ import firebase from "firebase/app";
 
 const Navbar = (props) => {
   const authLinks = <Link to="/">Authenticate</Link>;
+  const [user, isLoading] = useAuthState(firebaseData.auth);
 
   const userLinks = (
     <div>
-      <Link to="/">Dashboard</Link>
-      <Link to="/">Teams</Link>
-      <Link to="/">Tasks</Link>
+      <Link to="/teams">Teams</Link>
+      <Link to="/tasks">Tasks</Link>
+      <Link to="/reminders">Reminders</Link>
       <button onClick={() => firebase.auth().signOut()}>Signout</button>
+      <p>{user?.displayName || user?.email}</p>
     </div>
   );
 
-  const [user, isLoading] = useAuthState(firebaseData.auth);
-
   return (
     <div className="black white-text flex navbar">
-      <Link to="/">
+      <Link to={user ? "/dashboard" : "/"}>
         <h3 style={{ margin: 0, color: "#fff" }}>Dlank</h3>
       </Link>
       {!isLoading ? (!user ? authLinks : userLinks) : ""}
